@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: k8s-drupal-deploy-test
+  name: k8s-drupal-deploy-test
+  namespace: dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: k8s-drupal-deploy-test
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: k8s-drupal-deploy-test
+    spec:
+      containers:
+      - image: duaneleem/k8s-drupal-deploy-test:0.0.1
+        name: k8s-drupal-deploy-test
+        ports:
+        - containerPort: 80  
+        env:
+        - name: MYSQL_USER
+          value: root
+        - name: MYSQL_DATABASE
+          value: mysql
+        - name: MYSQL_ROOT_PASSWORD
+          value: "Th3Sup3rH@rdP@$$w0rd"
+

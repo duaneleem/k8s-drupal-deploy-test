@@ -10,6 +10,5 @@
 FROM drupal:7.72-apache
 
 # Example installing php 7 GD library
-# RUN apt upgrade && apt install php7.0-gd
 RUN apt-get update && apt-get install -y vim
 

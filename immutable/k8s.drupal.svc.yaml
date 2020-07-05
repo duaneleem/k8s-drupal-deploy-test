@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: k8s-drupal-deploy-test
+  name: k8s-drupal-deploy-test
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8210
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: k8s-drupal-deploy-test
